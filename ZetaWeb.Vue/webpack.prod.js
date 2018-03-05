@@ -1,5 +1,4 @@
-﻿/// <binding />
-"use strict";
+﻿"use strict";
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
