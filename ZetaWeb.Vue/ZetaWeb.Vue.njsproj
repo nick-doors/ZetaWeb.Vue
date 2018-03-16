@@ -5,6 +5,11 @@
     <Name>ZetaWeb.Vue</Name>
     <RootNamespace>ZetaWeb.Vue</RootNamespace>
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <EnableTypeScript>true</EnableTypeScript>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <ToolsVersionPromptShown>0.0</ToolsVersionPromptShown>
+    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -29,16 +34,14 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="api\shop.js" />
-    <Compile Include="bundles\zetaweb-vue.js" />
-    <Compile Include="bundles\zetaweb-vue.min.js" />
-    <Compile Include="components\catalog-tree-node.js" />
-    <Compile Include="components\catalog-tree.js" />
-    <Compile Include="main.js" />
-    <Compile Include="mixins\vue-control.js" />
+    <Compile Include="dist\zetaweb-vue.js" />
+    <Compile Include="dist\zetaweb-vue.min.js" />
+    <Compile Include="src\components\catalog-tree.ts" />
+    <Compile Include="src\components\catalog-tree-node.ts" />
+    <Compile Include="src\main.ts" />
     <Compile Include="server.js" />
-    <Compile Include="store\index.js" />
-    <Compile Include="store\modules\catalog.js" />
+    <Compile Include="src\store\index.ts" />
+    <Compile Include="src\store\modules\catalog.ts" />
     <Compile Include="webpack.common.js">
       <SubType>Code</SubType>
     </Compile>
@@ -50,14 +53,35 @@
       <SubType>Code</SubType>
     </Compile>
     <Content Include="README.md" />
+    <Content Include="tsconfig.json">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="api\" />
-    <Folder Include="bundles\" />
-    <Folder Include="components\" />
-    <Folder Include="mixins\" />
-    <Folder Include="store\" />
-    <Folder Include="store\modules\" />
+    <Folder Include="src\api\" />
+    <Folder Include="dist\" />
+    <Folder Include="src\components\" />
+    <Folder Include="src\types\" />
+    <Folder Include="src\mixins\" />
+    <Folder Include="src\" />
+    <Folder Include="src\store\" />
+    <Folder Include="src\store\modules\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\api\zetaweb-api.ts" />
+    <TypeScriptCompile Include="src\store\actions-types.ts" />
+    <TypeScriptCompile Include="src\store\mutation-types.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\types\catalog.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\mixins\vue-control.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\types\states.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

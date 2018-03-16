@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
 module.exports = {
-    entry: "./main.js",
+    entry: "./src/main.js",
     plugins: [
         new WebpackNotifierPlugin(),
         new webpack.DefinePlugin({
@@ -16,5 +16,7 @@ module.exports = {
         alias: {
             'vue$': debug ? 'vue/dist/vue.js' : 'vue/dist/vue.min.js'
         }
-    }
+    },
+    target: 'web',
+    devtool: 'source-map'
 };

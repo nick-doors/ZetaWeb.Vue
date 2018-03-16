@@ -3,23 +3,25 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     output: {
-        filename: "./bundles/zetaweb-vue.min.js"
+        filename: "./dist/zetaweb-vue.min.js"
     },
     module: {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env']
+                        presets: ['es2015']
                     }
                 }
             }
         ]
     },
     plugins: [
-        new UglifyJSPlugin()
+        new UglifyJSPlugin({
+            sourceMap: true
+        })
     ]
 };

@@ -1,10 +1,7 @@
-﻿/// <binding />
-"use strict";
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+﻿"use strict";
 
-module.exports = merge(common, {
+module.exports = {
     output: {
-        filename: "./bundles/zetaweb-vue.js"
-    }
-});
+        filename: "./dist/zetaweb-vue.js"
+    }    
+};
